@@ -1,18 +1,21 @@
 # 본 문제는 python 의 빠른 기초 학습을 위해 설계된 문제로서 python 코드 제출을 기준으로 설명되어 있습니다. 
 # ------
 
-# 시:분:초 형식으로 시간이 입력될 때 분만 출력해보자.
+# 주민번호는 다음과 같이 구성된다.
+# XXXXXX-XXXXXXX
 
-# 어떻게 분만 출력해야 할지 주의 깊게 생각해야한다.
+# 왼쪽 6자리는 생년월일(YYMMDD)이고, 오른쪽 7자리는 성별,출생지역,확인코드로 구성되어있다.
+# 주민번호를 입력받아 형태를 바꿔 출력해보자.
 
-str_input = input("'hh:mm:ss 형식의 시간 입력 : ")
+str_input = input("주민번호 : ").split("-")
 
-if len(str_input) != 8:
-    print("형식에 맞게 입력하세요")
-else:
-    try:
-        m = int(str_input.split(":")[1])
+try:
+    if len(str_input[0]) != 6 or len(str_input[1]) != 7:
+        print("주민번호 형식에 맞지 않습니다")
+    else:
+        a = int(str_input[0])
+        b = int(str_input[1])
 
-        print(m)
-    except ValueError:
-        print("정수 형태의 자료를 입력하세요")
+    print(a, b, sep="")
+except ValueError:
+    print("주민번호는 숫자 타입입니다")
