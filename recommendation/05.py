@@ -34,11 +34,14 @@ try:
     for i in range(n - 2):
         for j in range(n):
             if j == 0:
-                print('*')
+                print('*', end='')
             elif j == n-1:
                 print('*')
             else:
-                print(' ')
-
+                if (i + j) % k == 1:
+                    print('*', end='')
+                else:
+                    print(' ', end='')
+    print('*'*n)
 except Exception as e:
     print(e)
