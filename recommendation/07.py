@@ -24,7 +24,18 @@ try:
     x = n // 2
     y = 0
     while i <= n**2:
-        if x >= n:
+        if x >= 0 and x < n and y >= 0 and y < n:
+            m[y][x] = i
+            i += 1
+            x += 1
+            y -= n
+        elif x >= 0 and x < n and y < 0:
+            y = 0
+        elif x
+            print(x, y, i)
+
+            break
+    print(m)
             
 except Exception as e:
     print(e)
