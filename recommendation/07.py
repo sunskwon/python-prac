@@ -23,19 +23,29 @@ try:
     i = 1
     x = n // 2
     y = 0
+    
     while i <= n**2:
-        if x >= 0 and x < n and y >= 0 and y < n:
-            m[y][x] = i
-            i += 1
-            x += 1
-            y -= n
-        elif x >= 0 and x < n and y < 0:
-            y = 0
-        elif x
-            print(x, y, i)
 
-            break
-    print(m)
+        if y < 0:
+            if x >= 0 and x < n:
+                y = n - 1
+            elif x >= n:
+                y += 2
+                x -= 1
+        elif x >= n:
+            x = 0
+
+        if m[y][x] == 0:
+            m[y][x] = i
+            y -= 1
+            x += 1
+            i += 1
+        else:
+            y += 2
+            x -= 1
+    
+    for row in m:
+        print(" ".join(str(num).rjust(2) for num in row))
             
 except Exception as e:
     print(e)
